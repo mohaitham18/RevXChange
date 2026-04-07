@@ -1,0 +1,12 @@
+:root {
+  --color-primary: #5a0f1c; /* wine red */
+  --color-secondary: #c0c0c0; /* silver */
+  --color-bg: #0a0a0a;
+  --color-surface: #121212;
+
+  --text-primary: #e5e5e5;
+  --text-secondary: #a0a0a0;
+
+  --radius: 12px;
+  --transition: 0.3s ease;
+}
