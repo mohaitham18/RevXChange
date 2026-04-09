@@ -1,12 +1,16 @@
 :root {
-  --color-primary: #5a0f1c; /* wine red */
-  --color-secondary: #c0c0c0; /* silver */
-  --color-bg: #0a0a0a;
-  --color-surface: #121212;
+  --primary: #5a0f1c; /* wine red */
+  --primary-dark: #3e0a13;
+  --secondary: #c0c0c0; /* silver */
+  --background: #f8f9fb;
+  --white: #ffffff;
+  --text-dark: #1a1a1a;
+  --text-light: #777;
 
-  --text-primary: #e5e5e5;
-  --text-secondary: #a0a0a0;
+  --section-padding: 60px;
+  --container-width: 1200px;
 
   --radius: 12px;
-  --transition: 0.3s ease;
+
+  --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
