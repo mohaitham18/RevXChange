@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>RevXChange</title>
+  
+
 
   <!-- CSS -->
   <link rel="stylesheet" href="css/base/reset.css">
@@ -10,9 +12,52 @@
   <link rel="stylesheet" href="css/base/typography.css">
   <link rel="stylesheet" href="css/components/navbar.css">
   <link rel="stylesheet" href="css/pages/home.css">
+
 </head>
 
 <body>
+  <nav class="navbar">
+  <div class="container">
+
+    <!-- Logo -->
+    <a href="index.html" class="nav-logo">
+  <img src="assets/images/Logo.png" alt="RevXChange Logo">
+</a>
+
+    <!-- Nav Links -->
+    <ul class="nav-links">
+      <li><a href="used-cars.html">Used Cars</a></li>
+      <li><a href="buy-cars.html">New Cars</a></li>
+      <li><a href="#">Auctioned Cars</a></li>
+      <li><a href="Q-A.html">Ask About Your Car</a></li>
+      <li><a href="#">Car Communities</a></li>
+    </ul>
+
+    <!-- Right Side Actions -->
+    <div class="nav-actions">
+      <button class="lang-btn">🌐 عربي</button>
+      <a href="sell-car.html" class="sell-btn">+ Sell My Car</a>
+
+      <!-- Show when logged OUT -->
+      <a href="login.html" class="login-btn" id="loginBtn">Login</a>
+
+      <!-- Show when logged IN (hidden by default) -->
+      <div class="profile-menu hidden" id="profileMenu">
+        <button class="profile-icon">👤</button>
+        <ul class="dropdown">
+          <li><a href="#">My Ads</a></li>
+          <li><a href="#">Saved Ads</a></li>
+          <li><a href="#">Credits Usage</a></li>
+          <li><a href="dashboard.html">Settings</a></li>
+          <li><a href="#" id="logoutBtn">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+  </nav>
+
+  <br><br><br><br><br><br> <!--for the spacing l delw-->
 
   <section class="home-brands">
     <div class="container">
