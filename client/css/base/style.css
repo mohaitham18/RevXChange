@@ -1,7 +1,8 @@
 .container {
-  width: 1200px;
+  max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
-  background: rgba(0,255,0,0.2); /* DEBUG GREEN */
+  padding: 0 24px;
 }
 
 .section {
