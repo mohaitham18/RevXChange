@@ -2,27 +2,35 @@
       document.getElementById('card').classList.toggle('flipped');
     }
 
-    function checkStrength(val) {
-      const segs = [document.getElementById('s1'), document.getElementById('s2'), document.getElementById('s3'), document.getElementById('s4')];
-      segs.forEach(s => { s.className = 'strength-seg'; });
-      if (val.length === 0) return;
-      let score = 0;
-      if (val.length >= 6) score++;
-      if (val.length >= 10) score++;
-      if (/[A-Z]/.test(val) && /[0-9]/.test(val)) score++;
-      if (/[^A-Za-z0-9]/.test(val)) score++;
-      const cls = score <= 1 ? 'weak' : score === 2 ? 'medium' : 'strong';
-      for (let i = 0; i < score; i++) segs[i].classList.add(cls);
+function checkStrength(val) {
+    // Get all 4 strength bar segments
+    const segs = [
+        document.getElementById('s1'), 
+        document.getElementById('s2'), 
+        document.getElementById('s3'), 
+        document.getElementById('s4')
+    ];
+    
+    // Reset all segments to default gray
+    segs.forEach(s => { s.className = 'strength-seg'; });
+    
+    // If password is empty, do nothing else
+    if (val.length === 0) return;
+    
+    // Calculate strength score (0-4)
+    let score = 0;
+    if (val.length >= 6) score++;      // At least 6 characters
+    if (val.length >= 10) score++;     // At least 10 characters
+    if (/[A-Z]/.test(val) && /[0-9]/.test(val)) score++;  // Has uppercase AND number
+    if (/[^A-Za-z0-9]/.test(val)) score++;  // Has special character
+    
+    // Determine strength level based on score
+    const cls = score <= 1 ? 'weak' : score === 2 ? 'medium' : 'strong';
+    
+    // Color the segments based on score
+    for (let i = 0; i < score; i++) {
+        segs[i].classList.add(cls);  // Adds 'weak', 'medium', or 'strong' class
     }
+}
 
-    // Generate particles
-    const container = document.getElementById('particles');
-    for (let i = 0; i < 25; i++) {
-      const p = document.createElement('div');
-      p.className = 'particle';
-      p.style.left = Math.random() * 100 + '%';
-      p.style.animationDuration = (8 + Math.random() * 12) + 's';
-      p.style.animationDelay = (Math.random() * 10) + 's';
-      p.style.width = p.style.height = (1 + Math.random() * 2) + 'px';
-      container.appendChild(p);
-    }
+  
