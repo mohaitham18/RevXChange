@@ -1,33 +1,32 @@
 .home-brands {
-  margin-top: 300px;
-  padding: 40px 0;
+    margin-top: 300px;
+    padding: 40px 0;
 }
 
 .brands-box {
-  background: var(--color-surface);
-  border-radius: var(--radius);
-  padding: 30px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-
-  outline: 4px solid red;
+    background: var(--color-surface);
+    border-radius: var(--radius);
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    outline: 4px solid red;
 }
 
 .tabs {
-  display: flex;
-  gap: 40px;
-  border-bottom: 1px solid rgba(0,0,0,0.1);
-  margin-bottom: 25px;
+    display: flex;
+    gap: 40px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 25px;
 }
 
 .tabs button {
-  background: none;
-  border: none;
-  font-size: 15px;
-  font-weight: 500;
-  color: var(--text-secondary);
-  padding-bottom: 12px;
-  cursor: pointer;
-  position: relative;
+    background: none;
+    border: none;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    padding-bottom: 12px;
+    cursor: pointer;
+    position: relative;
 }
 
 .tabs button:hover {
@@ -35,27 +34,27 @@
 }
 
 .tabs button.active {
-  color: var(--text-primary);
+    color: var(--text-primary);
 }
 
 .tabs button.active::after {
-  content: "";
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: var(--color-primary);
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--color-primary);
 }
 
 .brands-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-  gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 20px;
 }
 
 .brands-box {
-  margin: 0 auto;
+    margin: 0 auto;
 }
 
 .brand-card {
@@ -91,15 +90,98 @@
 }
 
 .brand-card:hover h4 {
-  color: var(--color-primary);
+    color: var(--color-primary);
 }
 
 .hero-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 400px;
-  background: var(--color-primary);
-  z-index: -1;
+    position: relative;
+    min-height: 620px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #2b0710 0%, #4b0f1c 40%, #6d1528 72%, #2f0911 100%);
+    display: flex;
+    align-items: center;
+}
+
+.hero-bg::before,
+.hero-bg::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.hero-bg::before {
+    width: 900px;
+    height: 900px;
+    left: -360px;
+    top: -180px;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.hero-bg::after {
+    width: 760px;
+    height: 760px;
+    right: -220px;
+    top: 60px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding-top: 40px;
+}
+
+.hero-text {
+    max-width: 520px;
+    color: var(--white);
+}
+
+.hero-text h1 {
+    font-size: 3.2rem;
+    line-height: 1.1;
+    margin-bottom: 18px;
+    font-weight: 800;
+}
+
+.hero-text p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.82);
+    margin-bottom: 28px;
+}
+
+.hero-btn {
+    display: inline-block;
+    background: #f2c230;
+    color: #1a1a1a;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 14px 28px;
+    border-radius: 12px;
+    transition: 0.25s ease;
+}
+
+.hero-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.hero-image img {
+    max-width: 720px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
 }

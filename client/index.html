@@ -1,85 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>RevXChange</title>
-  
+    <meta charset="UTF-8">
+    <title>RevXChange</title>
 
 
-<link rel="stylesheet" href="css/base/reset.css">
-<link rel="stylesheet" href="css/base/variables.css">
-<link rel="stylesheet" href="css/base/typography.css">
-<link rel="stylesheet" href="css/base/style.css">
-<link rel="stylesheet" href="css/components/navbar.css">
-<link rel="stylesheet" href="css/pages/home.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/base/reset.css">
+    <link rel="stylesheet" href="css/base/variables.css">
+    <link rel="stylesheet" href="css/base/typography.css">
+    <link rel="stylesheet" href="css/components/navbar.css">
+    <link rel="stylesheet" href="css/pages/home.css">
+
 </head>
 
 <body>
-  <section class="hero-bg"></section>
-  <nav class="navbar">
-  <div class="container">
+    <section class="hero-bg">
+        <div class="hero-content container">
+            <div class="hero-text">
+                <h1>Buy &amp; Sell Cars in Egypt</h1>
+                <p>
+                    Discover trusted listings, modern tools, and a better way to explore cars with RevXChange.
+                </p>
+                <a href="pages/used-cars.html" class="hero-btn">Browse All Cars</a>
+            </div>
 
-    
-    <a href="index.html" class="nav-logo">
-  <img src="assets/images/Logo.png" alt="RevXChange Logo">
-</a>
-
-    <!-- Nav Links -->
-    <ul class="nav-links">
-      <li><a href="pages/used-cars.html">Used Cars</a></li>
-      <li><a href="pages/buy-cars.html">New Cars</a></li>
-      <li><a href="#">Auctioned Cars</a></li>
-      <li><a href="Q-A.html">Ask About Your Car</a></li>
-      <li><a href="#">Car Communities</a></li>
-    </ul>
-
-    <!-- Right Side Actions -->
-    <div class="nav-actions">
-      <button class="lang-btn">🌐 عربي</button>
-      <a href="sell-car.html" class="sell-btn">+ Sell My Car</a>
-
-      <!-- Show when logged OUT -->
-      <a href="pages/login.html" class="login-btn" id="loginBtn">Login</a>
-
-      <!-- Show when logged IN (hidden by default) -->
-      <div class="profile-menu hidden" id="profileMenu">
-        <button class="profile-icon">👤</button>
-        <ul class="dropdown">
-          <li><a href="#">My Ads</a></li>
-          <li><a href="#">Saved Ads</a></li>
-          <li><a href="#">Credits Usage</a></li>
-          <li><a href="dashboard.html">Settings</a></li>
-          <li><a href="#" id="logoutBtn">Logout</a></li>
-        </ul>
-      </div>
-    </div>
-
-  </div>
-  </nav>
+            <div class="hero-image">
+                <img src="assets/images/BMW.png" alt="Featured Car">
+            </div>
+        </div>
+    </section>
 
 
-<section class="home-brands">
-  <div class="container">
+    <nav class="navbar">
+        <div class="container">
 
-    <div class="brands-box">
 
-      <h2 class="section-title" id="sectionTitle">Top Brands</h2>
+            <a href="index.html" class="nav-logo">
+                <img src="assets/images/Logo.png" alt="RevXChange Logo">
+            </a>
 
-      <div class="tabs">
-        <button class="active">Top Brands</button>
-        <button>Top Models</button>
-        <button>Top Cities</button>
-        <button>Price Ranges</button>
-      </div>
+            <!-- Nav Links -->
+            <ul class="nav-links">
+                <li><a href="pages/used-cars.html">Used Cars</a></li>
+                <li><a href="pages/buy-cars.html">New Cars</a></li>
+                <li><a href="#">Auctioned Cars</a></li>
+                <li><a href="Q-A.html">Ask About Your Car</a></li>
+                <li><a href="#">Car Communities</a></li>
+            </ul>
 
-      <div class="brands-grid">
-      
-      </div>
+            <!-- Right Side Actions -->
+            <div class="nav-actions">
+                <button class="lang-btn">🌐 عربي</button>
+                <a href="pages/sell-car.html" class="sell-btn">+ Sell My Car</a>
 
-    </div>
+                <!-- Show when logged OUT -->
+                <a href="pages/login.html" class="login-btn" id="loginBtn">Login</a>
 
-  </div>
-</section>
+                <!-- Show when logged IN (hidden by default) -->
+                <div class="profile-menu hidden" id="profileMenu">
+                    <button class="profile-icon">👤</button>
+                    <ul class="dropdown">
+                        <li><a href="#">My Ads</a></li>
+                        <li><a href="#">Saved Ads</a></li>
+                        <li><a href="#">Credits Usage</a></li>
+                        <li><a href="pages/dashboard.html">Settings</a></li>
+                        <li><a href="#" id="logoutBtn">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+
+
+    <section class="home-brands">
+        <div class="container">
+
+            <div class="brands-box">
+
+                <h2 class="section-title" id="sectionTitle">Top Brands</h2>
+
+                <div class="tabs">
+                    <button class="active">Top Brands</button>
+                    <button>Top Models</button>
+                    <button>Top Cities</button>
+                    <button>Price Ranges</button>
+                </div>
+
+                <div class="brands-grid">
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
 
 </body>
+
 </html>
