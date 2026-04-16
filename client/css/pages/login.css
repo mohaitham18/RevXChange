@@ -37,30 +37,6 @@
       background-size: 60px 60px;
     }
 
-    /* Floating particles */
-    .particles {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      overflow: hidden;
-    }
-
-    .particle {
-      position: absolute;
-      width: 2px;
-      height: 2px;
-      background: rgba(192, 192, 192, 0.4);
-      border-radius: 50%;
-      animation: float linear infinite;
-    }
-
-    @keyframes float {
-      0% { transform: translateY(100vh) translateX(0); opacity: 0; }
-      10% { opacity: 1; }
-      90% { opacity: 1; }
-      100% { transform: translateY(-100px) translateX(30px); opacity: 0; }
-    }
-
     /* Scene wrapper */
     .scene {
       perspective: 1200px;
@@ -71,7 +47,7 @@
     /* The 3D card */
     .card-3d {
       width: 420px;
-      height: 560px;
+      height: 565px;
       position: relative;
       transform-style: preserve-3d;
       transition: transform 0.75s cubic-bezier(0.4, 0.2, 0.2, 1);
@@ -277,39 +253,10 @@
       color: rgba(255, 255, 255, 0.3);
     }
 
-    /* Social buttons */
-    .social-btns {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 28px;
-    }
-
-    .btn-social {
-      flex: 1;
-      padding: 11px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 10px;
-      color: rgba(255, 255, 255, 0.6);
-      font-size: 0.85rem;
-      font-family: 'Segoe UI', sans-serif;
-      cursor: pointer;
-      transition: all 0.2s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-    }
-
-    .btn-social:hover {
-      background: rgba(255, 255, 255, 0.09);
-      color: #fff;
-      border-color: rgba(255, 255, 255, 0.2);
-    }
-
+   
     /* Switch text */
     .switch-text {
-      text-align: center;
+      text-align: center;   
       font-size: 0.88rem;
       color: rgba(255, 255, 255, 0.35);
       margin-top: auto;
