@@ -5,6 +5,7 @@
 }
 
 body {
+  padding-top: 100px;
   background: var(--color-bg);
   font-family: 'Segoe UI', sans-serif;
   color: var(--text-primary);

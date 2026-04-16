@@ -1,7 +1,7 @@
 .container {
-  width: 90%;
-  max-width: var(--container-width);
-  margin: auto;
+  width: 1200px;
+  margin: 0 auto;
+  background: rgba(0,255,0,0.2); /* DEBUG GREEN */
 }
 
 .section {
