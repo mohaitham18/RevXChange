@@ -168,7 +168,28 @@ tabButtons.forEach(tab => {
 
 // ─── Navbar Scroll ────────────────────────────────────────────
 window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 50);
+  navbar.classList.toggle('scrolled', window.scrollY > 80);
+});
+
+// ─── Nav Indicator ────────────────────────────────────────────
+const navIndicator   = document.getElementById('navIndicator');
+const navLinksList   = document.querySelector('.nav-links');
+const navLinkAnchors = document.querySelectorAll('.nav-links a');
+
+function moveIndicator(anchor) {
+  const listRect   = navLinksList.getBoundingClientRect();
+  const linkRect   = anchor.getBoundingClientRect();
+  navIndicator.style.left    = (linkRect.left - listRect.left) + 'px';
+  navIndicator.style.width   = linkRect.width + 'px';
+  navIndicator.style.opacity = '1';
+}
+
+navLinkAnchors.forEach(anchor => {
+  anchor.addEventListener('mouseenter', () => moveIndicator(anchor));
+});
+
+navLinksList.addEventListener('mouseleave', () => {
+  navIndicator.style.opacity = '0';
 });
 
 // ─── Hero Fade ────────────────────────────────────────────────
