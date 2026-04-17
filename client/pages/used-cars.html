@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Used Cars - RevXChange</title>
+
+  <link rel="stylesheet" href="../css/base/reset.css" />
+  <link rel="stylesheet" href="../css/base/variables.css" />
+  <link rel="stylesheet" href="../css/base/typography.css" />
+  <link rel="stylesheet" href="../css/base/style.css" />
+  <link rel="stylesheet" href="../css/components/navbar.css" />
+  <link rel="stylesheet" href="../css/components/cards.css" />
+  <link rel="stylesheet" href="../css/pages/used-cars.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container">
+
+      <a href="../index.html" class="nav-logo">
+        <img src="../assets/images/Logo.png" alt="RevXChange Logo">
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="used-cars.html">Used Cars</a></li>
+        <li><a href="buy-cars.html">New Cars</a></li>
+        <li><a href="#">Auctioned Cars</a></li>
+        <li><a href="#">Ask About Your Car</a></li>
+        <li><a href="#">Car Communities</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="lang-btn">🌐 عربي</button>
+        <a href="sell-car.html" class="sell-btn">+ Sell My Car</a>
+        <a href="login.html" class="login-btn" id="loginBtn">Login</a>
+
+        <div class="profile-menu hidden" id="profileMenu">
+          <button class="profile-icon">👤</button>
+          <ul class="dropdown">
+            <li><a href="#">My Ads</a></li>
+            <li><a href="#">Saved Ads</a></li>
+            <li><a href="#">Credits Usage</a></li>
+            <li><a href="dashboard.html">Settings</a></li>
+            <li><a href="#" id="logoutBtn">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </nav>
+
+  <section class="used-page-hero">
+    <div class="container">
+      <div class="used-page-hero-content">
+        <span class="used-page-tag">RevXChange Listings</span>
+        <h1>Browse Used Cars</h1>
+        <p>Find trusted used cars in Egypt with a cleaner and smarter search experience.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="used-page-content">
+    <div class="container">
+      <div class="used-page-layout">
+
+        <aside class="used-filters">
+          <div class="used-filter-box">
+            <h3>Filters</h3>
+
+            <div class="filter-group">
+              <label for="brandFilter">Brand</label>
+              <select id="brandFilter">
+                <option value="">All Brands</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label for="cityFilter">City</label>
+              <select id="cityFilter">
+                <option value="">All Cities</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label for="transmissionFilter">Transmission</label>
+              <select id="transmissionFilter">
+                <option value="">All</option>
+                <option value="Automatic">Automatic</option>
+                <option value="Manual">Manual</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label for="maxPriceFilter">Max Price</label>
+              <input type="number" id="maxPriceFilter" placeholder="Enter max price">
+            </div>
+
+            <div class="filter-group check-filter">
+              <label>
+                <input type="checkbox" id="fabrikaFilter">
+                Fabrika only
+              </label>
+            </div>
+
+            <div class="filter-actions">
+              <button id="applyFiltersBtn" class="filter-btn-primary">Apply</button>
+              <button id="resetFiltersBtn" class="filter-btn-secondary">Reset</button>
+            </div>
+          </div>
+        </aside>
+
+        <main class="used-results">
+          <div class="used-results-bar">
+            <div>
+              <h2 id="resultsCount">0 Cars Found</h2>
+              <p>Explore available used cars across Egypt.</p>
+            </div>
+
+            <div class="sort-wrap">
+              <label for="sortSelect">Sort by</label>
+              <select id="sortSelect">
+                <option value="default">Default</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="year-new">Year: Newest</option>
+                <option value="mileage-low">Mileage: Low to High</option>
+              </select>
+            </div>
+          </div>
+
+          <div id="usedCarsGrid" class="car-cards-grid"></div>
+        </main>
+
+      </div>
+    </div>
+  </section>
+
+  <script src="../js/cars.js"></script>
+  <script src="../js/cards.js"></script>
+  <script src="../js/used-cars.js"></script>
+  <script src="../js/navbar.js"></script>
+</body>
+</html>

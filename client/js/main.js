@@ -1,4 +1,4 @@
-const navbar     = document.querySelector('.navbar');
+
 const tabButtons = document.querySelectorAll('.tabs button');
 const title      = document.getElementById('sectionTitle');
 const hero       = document.querySelector('.hero-bg');
@@ -155,103 +155,12 @@ function switchTab(tabName) {
   }, 150);
 }
 
-// ─── Tab Click Handler ────────────────────────────────────────
-tabButtons.forEach(tab => {
-  tab.addEventListener('click', () => {
-    if (tab.classList.contains('active')) return;
-    tabButtons.forEach(t => t.classList.remove('active'));
-    tab.classList.add('active');
-    title.textContent = tab.textContent;
-    switchTab(tab.textContent.trim());
-  });
-});
-
-// ─── Navbar Scroll ────────────────────────────────────────────
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 80);
-});
-
-// ─── Nav Indicator ────────────────────────────────────────────
-const navIndicator   = document.getElementById('navIndicator');
-const navLinksList   = document.querySelector('.nav-links');
-const navLinkAnchors = document.querySelectorAll('.nav-links a');
-
-function moveIndicator(anchor) {
-  const listRect   = navLinksList.getBoundingClientRect();
-  const linkRect   = anchor.getBoundingClientRect();
-  navIndicator.style.left    = (linkRect.left - listRect.left) + 'px';
-  navIndicator.style.width   = linkRect.width + 'px';
-  navIndicator.style.opacity = '1';
-}
-
-navLinkAnchors.forEach(anchor => {
-  anchor.addEventListener('mouseenter', () => moveIndicator(anchor));
-});
-
-navLinksList.addEventListener('mouseleave', () => {
-  navIndicator.style.opacity = '0';
-});
-
-// ─── Hero Fade ────────────────────────────────────────────────
-window.addEventListener('scroll', () => {
-  const scroll = window.scrollY;
-  const opacity = Math.max(0, 1 - scroll / 400);
-  hero.style.opacity = opacity;
-});
 
 
 
-/* Discover Section*/
-// ─── Helper Formatters ────────────────────────────────────────
-function formatPrice(price) {
-  return price.toLocaleString() + ' EGP';
-}
 
-function formatMileage(mileage) {
-  return mileage.toLocaleString() + ' km';
-}
 
-// ─── Render: Car Card ─────────────────────────────────────────
-function renderCarCard(car) {
-  const imgSrc = brandImages[car.brand] || '';
-  const imgContent = imgSrc
-    ? `<img src="${imgSrc}" alt="${car.brand}" class="car-card-brand-img">`
-    : `<span class="car-card-fallback">🚗</span>`;
 
-  const fabrikaTag = car.fabrika
-    ? `<span class="car-tag car-tag-fabrika">Fabrika</span>`
-    : '';
-
-  return `
-    <div class="car-card-placeholder" data-id="${car.id}">
-      <div class="car-card-img">
-        ${imgContent}
-      </div>
-      <div class="car-card-info">
-        <h4>${car.brand} ${car.model} ${car.year}</h4>
-        <div class="car-price">${formatPrice(car.price)}</div>
-        <div class="car-meta">
-          <span>📍 ${car.city}</span>
-          <span>🛣️ ${formatMileage(car.mileage)}</span>
-        </div>
-        <div class="car-tags">
-          <span class="car-tag">${car.transmission}</span>
-          <span class="car-tag">${car.fuel}</span>
-          ${fabrikaTag}
-        </div>
-        <div class="car-card-actions">
-          <a href="https://wa.me/${car.phone}" target="_blank" class="car-action-btn car-action-whatsapp">
-            <svg viewBox="0 0 24 24" fill="currentColor" class="car-action-icon"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.549 4.107 1.51 5.84L0 24l6.335-1.48A11.934 11.934 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.006-1.371l-.36-.214-3.722.869.936-3.62-.235-.372A9.797 9.797 0 0 1 2.182 12C2.182 6.58 6.58 2.182 12 2.182S21.818 6.58 21.818 12 17.42 21.818 12 21.818z"/></svg>
-            WhatsApp
-          </a>
-          <a href="tel:+${car.phone}" class="car-action-btn car-action-call">
-            <svg viewBox="0 0 24 24" fill="currentColor" class="car-action-icon"><path d="M6.62 10.79a15.053 15.053 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1v3.5a1 1 0 0 1-1 1C9.61 22 2 14.39 2 5a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.01l-2.2 2.21z"/></svg>
-            Call
-          </a>
-        </div>
-      </div>
-    </div>`;
-}
 
 //Render: Discover Section
 function renderDiscover() {
