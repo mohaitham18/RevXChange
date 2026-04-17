@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="css/components/navbar.css">
     <link rel="stylesheet" href="css/components/cards.css">
     <link rel="stylesheet" href="css/pages/home.css">
+    <link rel="stylesheet" href="css/base/footer.css">
+
 </head>
 
 <body>
@@ -33,41 +35,41 @@
         </div>
     </section>
 
-<nav class="navbar">
-    <div class="container">
+    <nav class="navbar">
+        <div class="container">
 
-        <a href="index.html" class="nav-logo">
-            <img src="assets/images/Logo.png" alt="RevXChange Logo">
-        </a>
+            <a href="index.html" class="nav-logo">
+                <img src="assets/images/Logo.png" alt="RevXChange Logo">
+            </a>
 
-        <ul class="nav-links">
-            <li><a href="pages/used-cars.html">Used Cars</a></li>
-            <li><a href="pages/buy-cars.html">New Cars</a></li>
-            <li><a href="#">Auctioned Cars</a></li>
-            <li><a href="Q-A.html">Ask About Your Car</a></li>
-            <li><a href="#">Car Communities</a></li>
-            <span class="nav-indicator" id="navIndicator"></span>
-        </ul>
+            <ul class="nav-links">
+                <li><a href="pages/used-cars.html">Used Cars</a></li>
+                <li><a href="pages/buy-cars.html">New Cars</a></li>
+                <li><a href="#">Auctioned Cars</a></li>
+                <li><a href="Q-A.html">Ask About Your Car</a></li>
+                <li><a href="#">Car Communities</a></li>
+                <span class="nav-indicator" id="navIndicator"></span>
+            </ul>
 
-        <div class="nav-actions">
-            <button class="lang-btn">🌐 عربي</button>
-            <a href="pages/sell-car.html" class="sell-btn">+ Sell My Car</a>
-            <a href="pages/login.html" class="login-btn" id="loginBtn">Login</a>
+            <div class="nav-actions">
+                <button class="lang-btn">🌐 عربي</button>
+                <a href="pages/sell-car.html" class="sell-btn">+ Sell My Car</a>
+                <a href="pages/login.html" class="login-btn" id="loginBtn">Login</a>
 
-            <div class="profile-menu hidden" id="profileMenu">
-                <button class="profile-icon">👤</button>
-                <ul class="dropdown">
-                    <li><a href="#">My Ads</a></li>
-                    <li><a href="#">Saved Ads</a></li>
-                    <li><a href="#">Credits Usage</a></li>
-                    <li><a href="pages/dashboard.html">Settings</a></li>
-                    <li><a href="#" id="logoutBtn">Logout</a></li>
-                </ul>
+                <div class="profile-menu hidden" id="profileMenu">
+                    <button class="profile-icon">👤</button>
+                    <ul class="dropdown">
+                        <li><a href="#">My Ads</a></li>
+                        <li><a href="#">Saved Ads</a></li>
+                        <li><a href="#">Credits Usage</a></li>
+                        <li><a href="pages/dashboard.html">Settings</a></li>
+                        <li><a href="#" id="logoutBtn">Logout</a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
 
-    </div>
-</nav>
+        </div>
+    </nav>
     <section class="home-brands">
         <div class="container">
 
@@ -89,10 +91,92 @@
     </section>
 
     <section class="home-discover">
-      <div class="container">
-        <div id="discoverSection"></div>
-      </div>
+        <div class="container">
+            <div id="discoverSection"></div>
+        </div>
     </section>
+
+    <section class="home-faq">
+        <div class="container">
+            <h2 class="faq-title">Frequently Asked Questions</h2>
+
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">What is RevXChange? <span class="arrow"></span></button>
+                    <div class="faq-answer">
+                        <p>RevXChange is Egypt's premium car marketplace where you can buy, sell, and auction cars with verified listings and an active car enthusiast community.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">How do I sell my car on RevXChange? <span class="arrow"></span></button>
+                    <div class="faq-answer">
+                        <p>Simply click the "+ Sell My Car" button in the navbar. You can list your car for direct sale or enter it into one of our weekly auctions.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">Are the car communities free to join? <span class="arrow"></span></button>
+                    <div class="faq-answer">
+                        <p>Yes! Every car model has a dedicated community where you can share experiences, find trusted mechanics, and ask questions for free.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">How it Works</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>View Website In</h4>
+                <ul class="lang-list">
+                    <li><a href="#" class="active-lang">✓ English</a></li>
+                    <li><a href="#">العربية</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Need Help?</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Contact Sales</a></li>
+                    <li><a href="#">Feedback</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Connect with Us</h4>
+                <div class="social-icons">
+                    <a href="#">Facebook</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">Instagram</a>
+                </div>
+                <div class="app-links">
+                    <div class="app-btn">GET IT ON <span>Google Play</span></div>
+                    <div class="app-btn">Download on the <span>App Store</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <p>© RevXChange. All rights reserved | 2026 TAS Rights Management LLC.</p>
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="js/cars.js"></script>
     <script src="js/main.js"></script>
