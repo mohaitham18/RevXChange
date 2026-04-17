@@ -156,12 +156,6 @@ function switchTab(tabName) {
 }
 
 
-
-
-
-
-
-
 //Render: Discover Section
 function renderDiscover() {
   const el = document.getElementById('discoverSection');
