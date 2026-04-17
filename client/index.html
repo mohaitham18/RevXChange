@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/base/typography.css">
     <link rel="stylesheet" href="css/base/style.css">
     <link rel="stylesheet" href="css/components/navbar.css">
+    <link rel="stylesheet" href="css/components/cards.css">
     <link rel="stylesheet" href="css/pages/home.css">
 </head>
 
@@ -32,44 +33,41 @@
         </div>
     </section>
 
-    <nav class="navbar">
-        <div class="container">
+<nav class="navbar">
+    <div class="container">
 
-            <a href="index.html" class="nav-logo">
-                <img src="assets/images/Logo.png" alt="RevXChange Logo">
-            </a>
+        <a href="index.html" class="nav-logo">
+            <img src="assets/images/Logo.png" alt="RevXChange Logo">
+        </a>
 
-            <!-- Nav Links -->
-            <ul class="nav-links">
-                <li><a href="pages/used-cars.html">Used Cars</a></li>
-                <li><a href="pages/buy-cars.html">New Cars</a></li>
-                <li><a href="#">Auctioned Cars</a></li>
-                <li><a href="Q-A.html">Ask About Your Car</a></li>
-                <li><a href="#">Car Communities</a></li>
-            </ul>
+        <ul class="nav-links">
+            <li><a href="pages/used-cars.html">Used Cars</a></li>
+            <li><a href="pages/buy-cars.html">New Cars</a></li>
+            <li><a href="#">Auctioned Cars</a></li>
+            <li><a href="Q-A.html">Ask About Your Car</a></li>
+            <li><a href="#">Car Communities</a></li>
+            <span class="nav-indicator" id="navIndicator"></span>
+        </ul>
 
-            <!-- Right Side Actions -->
-            <div class="nav-actions">
-                <button class="lang-btn">🌐 عربي</button>
-                <a href="pages/sell-car.html" class="sell-btn">+ Sell My Car</a>
+        <div class="nav-actions">
+            <button class="lang-btn">🌐 عربي</button>
+            <a href="pages/sell-car.html" class="sell-btn">+ Sell My Car</a>
+            <a href="pages/login.html" class="login-btn" id="loginBtn">Login</a>
 
-                <a href="pages/login.html" class="login-btn" id="loginBtn">Login</a>
-
-                <div class="profile-menu hidden" id="profileMenu">
-                    <button class="profile-icon">👤</button>
-                    <ul class="dropdown">
-                        <li><a href="#">My Ads</a></li>
-                        <li><a href="#">Saved Ads</a></li>
-                        <li><a href="#">Credits Usage</a></li>
-                        <li><a href="pages/dashboard.html">Settings</a></li>
-                        <li><a href="#" id="logoutBtn">Logout</a></li>
-                    </ul>
-                </div>
+            <div class="profile-menu hidden" id="profileMenu">
+                <button class="profile-icon">👤</button>
+                <ul class="dropdown">
+                    <li><a href="#">My Ads</a></li>
+                    <li><a href="#">Saved Ads</a></li>
+                    <li><a href="#">Credits Usage</a></li>
+                    <li><a href="pages/dashboard.html">Settings</a></li>
+                    <li><a href="#" id="logoutBtn">Logout</a></li>
+                </ul>
             </div>
-
         </div>
-    </nav>
 
+    </div>
+</nav>
     <section class="home-brands">
         <div class="container">
 
@@ -96,6 +94,7 @@
       </div>
     </section>
 
+    <script src="js/cars.js"></script>
     <script src="js/main.js"></script>
 
 </body>

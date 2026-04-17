@@ -10,6 +10,8 @@ function checkStrength(val) {
         document.getElementById('s3'), 
         document.getElementById('s4')
     ];
+
+
     
     // Reset all segments to default gray
     segs.forEach(s => { s.className = 'strength-seg'; });
@@ -31,6 +33,29 @@ function checkStrength(val) {
     for (let i = 0; i < score; i++) {
         segs[i].classList.add(cls);  // Adds 'weak', 'medium', or 'strong' class
     }
+
+
 }
 
+    function signIn() {
+  const email = document.querySelector('input[type="email"]').value.trim();
+  const password = document.querySelector('input[type="password"]').value.trim();
+
+    if(email === 'user@revxchange.com' && password === '123456'){
+    localStorage.setItem('role', 'user');
+    window.location.href = '../index.html';
+    return;
+
+    }
+    else if (email === 'admin@revxchange.com' && password === '123456') {
+    localStorage.setItem('role', 'admin');
+    window.location.href = 'admin.html';
+    return;
+  }  
+  else {
+    alert('Invalid email or password');
+  }
   
+
+
+}
