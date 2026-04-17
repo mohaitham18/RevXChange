@@ -214,19 +214,38 @@ function formatMileage(mileage) {
 
 // ─── Render: Car Card ─────────────────────────────────────────
 function renderCarCard(car) {
-    const imgSrc = brandImages[car.brand] || '';
-    const imgContent = imgSrc ?
-        `<img src="${imgSrc}" alt="${car.brand}" class="car-card-brand-img">` :
-        `<span class="car-card-fallback">🚗</span>`;
+    const images  = car.images && car.images.length ? car.images : [''];
+    const total   = images.length;
+    const hasMany = total > 1;
 
-    const fabrikaTag = car.fabrika ?
-        `<span class="car-tag car-tag-fabrika">Fabrika</span>` :
-        '';
+    const fabrikaTag = car.fabrika
+        ? `<span class="car-tag car-tag-fabrika">Fabrika</span>`
+        : '';
+
+    // Build the image slides
+    const slides = images.map((src, i) => `
+        <div class="carousel-slide${i === 0 ? ' active' : ''}" data-index="${i}">
+            ${src
+                ? `<img src="${src}" alt="${car.brand}" class="car-card-brand-img">`
+                : `<span class="car-card-fallback">🚗</span>`}
+        </div>`).join('');
+
+    // Arrows — only rendered when more than 1 image
+    const arrows = hasMany ? `
+        <button class="carousel-arrow carousel-prev" data-id="${car.id}">&#8249;</button>
+        <button class="carousel-arrow carousel-next" data-id="${car.id}">&#8250;</button>` : '';
+
+    // Counter — only rendered when more than 1 image
+    const counter = hasMany
+        ? `<div class="carousel-counter" data-id="${car.id}">1 / ${total}</div>`
+        : '';
 
     return `
     <div class="car-card-placeholder" data-id="${car.id}">
-      <div class="car-card-img">
-        ${imgContent}
+      <div class="car-card-img carousel-wrapper">
+        ${slides}
+        ${arrows}
+        ${counter}
       </div>
       <div class="car-card-info">
         <h4>${car.brand} ${car.model} ${car.year}</h4>
@@ -253,6 +272,33 @@ function renderCarCard(car) {
       </div>
     </div>`;
 }
+
+// ─── Carousel Logic (event delegation) ───────────────────────
+// One listener on the document handles all cards — no matter how many are rendered.
+document.addEventListener('click', function(e) {
+    const btn = e.target.closest('.carousel-arrow');
+    if (!btn) return;
+
+    e.stopPropagation();
+
+    const carId   = parseInt(btn.dataset.id);
+    const card    = document.querySelector(`.car-card-placeholder[data-id="${carId}"]`);
+    const slides  = card.querySelectorAll('.carousel-slide');
+    const counter = card.querySelector('.carousel-counter');
+    const total   = slides.length;
+
+    let current = 0;
+    slides.forEach((s, i) => { if (s.classList.contains('active')) current = i; });
+
+    const next = btn.classList.contains('carousel-next')
+        ? (current + 1) % total
+        : (current - 1 + total) % total;
+
+    slides[current].classList.remove('active');
+    slides[next].classList.add('active');
+
+    if (counter) counter.textContent = `${next + 1} / ${total}`;
+});
 
 
 
