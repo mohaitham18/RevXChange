@@ -3,6 +3,22 @@ const tabButtons = document.querySelectorAll('.tabs button');
 const title      = document.getElementById('sectionTitle');
 const hero       = document.querySelector('.hero-bg');
 const grid       = document.querySelector('.brands-grid');
+const isLoggedIn = false;
+
+const popularSearches = [
+  'Toyota Corolla 2022', 'BMW 320i', 'Kia Sportage', 'Mercedes C200',
+  'Hyundai Elantra', 'Under 200K', 'Cairo', 'Automatic', 'SUV',
+  'Nissan Sunny', 'Chevrolet Cruze', 'Low Mileage', 'First Owner',
+];
+
+const mostViewedCars = [
+  { title: 'Mercedes C200 2021', price: '1,850,000 EGP', meta: '42,000 km · Cairo', icon: '🚗' },
+  { title: 'BMW 320i 2020',      price: '1,650,000 EGP', meta: '38,000 km · Giza',  icon: '🚙' },
+  { title: 'Kia Sportage 2022',  price: '980,000 EGP',   meta: '21,000 km · Alex',  icon: '🚕' },
+  { title: 'Toyota Corolla 2023',price: '740,000 EGP',   meta: '15,000 km · Cairo', icon: '🚘' },
+  { title: 'Hyundai Elantra 2022',price:'620,000 EGP',   meta: '28,000 km · Tanta', icon: '🚖' },
+  { title: 'Nissan Sunny 2021',  price: '410,000 EGP',   meta: '55,000 km · Suez',  icon: '🚗' },
+];
 
 // ─── Tab Data ────────────────────────────────────────────────
 const tabData = {
@@ -124,6 +140,10 @@ function renderGrid(tabName) {
   }).join('');
 }
 
+function renderChip(label) {
+  return `<button class="search-chip">${label}</button>`;
+}
+
 // ─── Animated Tab Switch ──────────────────────────────────────
 function switchTab(tabName) {
   grid.classList.add('tab-exit');
@@ -165,5 +185,71 @@ window.addEventListener('scroll', () => {
   hero.style.opacity = opacity;
 });
 
+
+
+/* Discover Section*/
+//Render: Placeholder Car Card (Moahmed Mohanad Changes this when the car card system is ready)
+function renderCarCard(car) {
+  return `
+    <div class="car-card-placeholder">
+      <div class="car-card-img">${car.icon}</div>
+      <div class="car-card-info">
+        <h4>${car.title}</h4>
+        <div class="car-price">${car.price}</div>
+        <div class="car-meta">${car.meta}</div>
+      </div>
+    </div>`;
+}
+
+//Render: Discover Section
+function renderDiscover() {
+  const el = document.getElementById('discoverSection');
+  if (!el) return;
+
+  if (!isLoggedIn) {
+    el.innerHTML = `
+      <div class="discover-grid">
+
+        <div class="discover-panel">
+          <h3 class="discover-panel-title">Popular Searches</h3>
+          <div class="search-chips">
+            ${popularSearches.map(renderChip).join('')}
+          </div>
+        </div>
+
+        <div class="discover-panel">
+          <h3 class="discover-panel-title">Most Viewed Cars</h3>
+          <div class="car-cards-grid">
+            ${mostViewedCars.map(renderCarCard).join('')}
+          </div>
+        </div>
+
+      </div>`;
+  } else {
+    el.innerHTML = `
+      <div class="discover-grid">
+
+        <div class="discover-panel">
+          <h3 class="discover-panel-title">Saved Searches</h3>
+          <div class="discover-empty">
+            <span>🔍</span>
+            No saved searches yet.
+          </div>
+        </div>
+
+        <div class="discover-panel">
+          <h3 class="discover-panel-title">Saved Ads</h3>
+          <div class="discover-empty">
+            <span>🚗</span>
+            No saved ads yet.
+          </div>
+        </div>
+
+      </div>`;
+  }
+}
+
 // ─── Init ─────────────────────────────────────────────────────
 renderGrid('Top Brands');
+renderGrid('Top Brands');
+renderDiscover();
