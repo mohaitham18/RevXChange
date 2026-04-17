@@ -41,12 +41,21 @@ function checkStrength(val) {
   const email = document.querySelector('input[type="email"]').value.trim();
   const password = document.querySelector('input[type="password"]').value.trim();
 
-  if (email === 'admin@revxchange.com' && password === '123456') {
+    if(email === 'user@revxchange.com' && password === '123456'){
+    localStorage.setItem('role', 'user');
+    window.location.href = '../index.html';
+    return;
+
+    }
+    else if (email === 'admin@revxchange.com' && password === '123456') {
     localStorage.setItem('role', 'admin');
     window.location.href = 'admin.html';
     return;
+  }  
+  else {
+    alert('Invalid email or password');
   }
+  
 
-  localStorage.setItem('role', 'user');
-  window.location.href = '../index.html';
+
 }
