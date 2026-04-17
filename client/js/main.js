@@ -155,6 +155,7 @@ function switchTab(tabName) {
     }, 150);
 }
 
+
 // ─── Tab Click Handler ────────────────────────────────────────
 tabButtons.forEach(tab => {
     tab.addEventListener('click', () => {
@@ -252,6 +253,7 @@ function renderCarCard(car) {
       </div>
     </div>`;
 }
+
 
 //Render: Discover Section
 function renderDiscover() {
