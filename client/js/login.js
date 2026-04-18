@@ -57,8 +57,3 @@ function signIn() {
         alert('Invalid email or password');
     }
 }
-
-document.querySelector('.btn-primary').addEventListener('click', () => {
-    localStorage.setItem('rxUser', 'Ali'); // replace 'Ali' with real name later
-    window.location.href = '../index.html';
-});
