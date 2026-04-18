@@ -377,33 +377,3 @@ document.querySelectorAll('.faq-question').forEach(button => {
         }
     });
 });
-// ─── Sell My Car Modal Control ─────────────────────────────
-const sellBtn = document.querySelector('.nav-btn-sell');
-const sellModal = document.getElementById('sellModal');
-const closeModal = document.querySelector('.close-modal');
-
-if (sellBtn && sellModal) {
-    sellBtn.addEventListener('click', (e) => {
-        e.preventDefault(); // This is the magic line that stops the page jump
-        sellModal.style.display = 'flex';
-        document.body.style.overflow = 'hidden'; // Stop background scrolling
-    });
-}
-
-if (closeModal) {
-    closeModal.addEventListener('click', () => {
-        sellModal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    });
-}
-
-// Close if user clicks background
-window.addEventListener('click', (e) => {
-    if (e.target === sellModal) {
-        sellModal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    }
-});
-const sellBtn = document.querySelector('.nav-btn-sell');
-const sellSection = document.getElementById('sellCarSection');
-const closeSell = document.querySelector('.close-sell-btn');
