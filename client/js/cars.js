@@ -224,6 +224,22 @@ const mostViewedCars = [
       'assets/images/fiat.png',
     ],
   },
+  {
+    id: 13,
+    brand:        'Fiat',
+    model:        'Tipo',
+    year:         2021,
+    price:        300000,
+    mileage:      22000,
+    city:         'Cairo',
+    transmission: 'Manual',
+    fuel:         'Petrol',
+    fabrika:      true,
+    phone:        '201000000012',
+    images: [
+      'assets/images/fiat.png',
+    ],
+  },
 ];
 
 /* Discover Section*/
