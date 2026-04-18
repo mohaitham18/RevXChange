@@ -1,4 +1,3 @@
-const navbar = document.querySelector('.navbar');
 const tabButtons = document.querySelectorAll('.tabs button');
 const title = document.getElementById('sectionTitle');
 const hero = document.querySelector('.hero-bg');
@@ -165,11 +164,6 @@ tabButtons.forEach(tab => {
         title.textContent = tab.textContent;
         switchTab(tab.textContent.trim());
     });
-});
-
-// ─── Navbar Scroll ────────────────────────────────────────────
-window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 80);
 });
 
 // ─── Nav Indicator ────────────────────────────────────────────

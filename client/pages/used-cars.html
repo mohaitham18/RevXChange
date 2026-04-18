@@ -51,14 +51,27 @@
   </nav>
 
   <section class="used-page-hero">
-    <div class="container">
-      <div class="used-page-hero-content">
-        <span class="used-page-tag">RevXChange Listings</span>
-        <h1>Browse Used Cars</h1>
-        <p>Find trusted used cars in Egypt with a cleaner and smarter search experience.</p>
+  <div class="container">
+    <div class="used-page-hero-content">
+      <div class="used-page-top-actions">
+        <a href="../index.html" class="back-home-btn">← Back Home</a>
+      
+      </div>
+
+      <h1>Browse Used Cars</h1>
+      <p>Find trusted used cars in Egypt with a cleaner and smarter search experience.</p>
+
+      <div class="used-hero-search">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search by brand, model, or city..."
+        />
+        <button id="searchBtn" class="hero-search-btn">Search</button>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <section class="used-page-content">
     <div class="container">
@@ -110,34 +123,35 @@
           </div>
         </aside>
 
-        <main class="used-results">
-          <div class="used-results-bar">
-            <div>
-              <h2 id="resultsCount">0 Cars Found</h2>
-              <p>Explore available used cars across Egypt.</p>
-            </div>
+<main class="used-results">
+  <div class="used-results-bar">
+    <div>
+      <h2 id="resultsCount">0 Cars Found</h2>
+      <p>Explore available used cars across Egypt.</p>
+    </div>
 
-            <div class="sort-wrap">
-              <label for="sortSelect">Sort by</label>
-              <select id="sortSelect">
-                <option value="default">Default</option>
-                <option value="price-low">Price: Low to High</option>
-                <option value="price-high">Price: High to Low</option>
-                <option value="year-new">Year: Newest</option>
-                <option value="mileage-low">Mileage: Low to High</option>
-              </select>
-            </div>
-          </div>
+    <div class="results-actions">
+      <div class="sort-wrap">
+        <label for="sortSelect">Sort by</label>
+        <select id="sortSelect">
+          <option value="default">Default</option>
+          <option value="price-low">Price: Low to High</option>
+          <option value="price-high">Price: High to Low</option>
+          <option value="year-new">Year: Newest</option>
+          <option value="mileage-low">Mileage: Low to High</option>
+        </select>
+      </div>
+    </div>
+  </div>
 
-          <div id="usedCarsGrid" class="car-cards-grid"></div>
-        </main>
+  <div id="usedCarsGrid" class="car-cards-grid"></div>
+</main>
 
       </div>
     </div>
   </section>
 
   <script src="../js/cars.js"></script>
-  <script src="../js/cards.js"></script>
   <script src="../js/used-cars.js"></script>
   <script src="../js/navbar.js"></script>
 </body>

@@ -37,25 +37,28 @@ function checkStrength(val) {
 
 }
 
-    function signIn() {
-  const email = document.querySelector('input[type="email"]').value.trim();
-  const password = document.querySelector('input[type="password"]').value.trim();
+function signIn() {
+    const email = document.querySelector('.card-front input[type="email"]').value.trim();
+    const password = document.querySelector('.card-front input[type="password"]').value.trim();
 
-    if(email === 'user@revxchange.com' && password === '123456'){
-    localStorage.setItem('role', 'user');
-    window.location.href = '../index.html';
-    return;
-
+    if (email === 'user@revxchange.com' && password === '123456') {
+        localStorage.setItem('role', 'user');
+        localStorage.setItem('rxUser', 'Ali');  
+        window.location.href = '../index.html';
+        return;
     }
     else if (email === 'admin@revxchange.com' && password === '123456') {
-    localStorage.setItem('role', 'admin');
-    window.location.href = 'admin.html';
-    return;
-  }  
-  else {
-    alert('Invalid email or password');
-  }
-  
-
-
+        localStorage.setItem('role', 'admin');
+        localStorage.setItem('rxUser', 'Admin');
+        window.location.href = 'admin.html';
+        return;
+    }
+    else {
+        alert('Invalid email or password');
+    }
 }
+
+document.querySelector('.btn-primary').addEventListener('click', () => {
+    localStorage.setItem('rxUser', 'Ali'); // replace 'Ali' with real name later
+    window.location.href = '../index.html';
+});
