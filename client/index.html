@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RevXChange</title>
 
     <link rel="stylesheet" href="css/base/reset.css">
@@ -11,13 +12,14 @@
     <link rel="stylesheet" href="css/base/style.css">
     <link rel="stylesheet" href="css/components/navbar.css">
     <link rel="stylesheet" href="css/components/cards.css">
+    <link rel="stylesheet" href="css/components/cara.css">
     <link rel="stylesheet" href="css/pages/home.css">
     <link rel="stylesheet" href="css/base/footer.css">
-    <link rel="stylesheet" href="css/pages/sell-car.css">
 </head>
 
 <body>
 
+    <!--Universal Navbar-->
     <nav class="navbar">
         <div class="container">
 
@@ -29,7 +31,22 @@
                 <li><a href="pages/used-cars.html">Used Cars</a></li>
                 <li><a href="pages/buy-cars.html">New Cars</a></li>
                 <li><a href="#">Auctioned Cars</a></li>
-                <li><a href="Q-A.html">Ask About Your Car</a></li>
+                <li>
+                    <a href="#" class="cara-nav-link" id="caraNavBtn">
+                        <svg class="cara-icon" viewBox="0 0 24 24" fill="none" width="15" height="15">
+                            <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M8.5 13C8.5 10.5 10.1 8.8 12 8.8C13.9 8.8 15.5 10.5 15.5 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            <circle cx="9.5" cy="15" r="1.1" fill="currentColor"/>
+                            <circle cx="14.5" cy="15" r="1.1" fill="currentColor"/>
+                        </svg>
+                        <span class="cara-text">Cara AI</span>
+                        <span class="cara-spark"></span>
+                        <span class="cara-spark"></span>
+                        <span class="cara-spark"></span>
+                        <span class="cara-spark"></span>
+                        <span class="cara-spark"></span>
+                    </a>
+                </li>
                 <li><a href="pages/communities.html">Car Communities</a></li>
                 <span class="nav-indicator" id="navIndicator"></span>
             </ul>
@@ -39,17 +56,19 @@
                 <a href="pages/sell-car.html" class="sell-btn">+ Sell My Car</a>
                 <a href="pages/login.html" class="login-btn" id="loginBtn">Login</a>
 
-        
+                <div class="profile-menu hidden" id="profileMenu">
+                    <button class="profile-trigger" id="profileTrigger">
+                        <div class="profile-avatar">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+                            </svg>
+                        </div>
+                        <span class="profile-name" id="profileName">User</span>
+                        <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M7 10l5 5 5-5z"/>
+                        </svg>
+                    </button>
 
-<<<<<<< HEAD
-<!-- Show when logged IN (hidden by default) -->
-<div class="profile-menu hidden" id="profileMenu">
-    <button class="profile-trigger" id="profileTrigger">
-        <div class="profile-avatar">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
-            </svg>
-=======
                     <ul class="dropdown" id="dropdownMenu">
                         <li class="dropdown-header">
                             <div class="dropdown-avatar">
@@ -74,49 +93,17 @@
                     </ul>
                 </div>
             </div>
->>>>>>> 899a5797bfc54b37a9215e8ec9db72ed649ddc50
         </div>
-        <span class="profile-name" id="profileName">User</span>
-        <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M7 10l5 5 5-5z"/>
-        </svg>
-    </button>
-
-    <ul class="dropdown" id="dropdownMenu">
-        <li class="dropdown-header">
-            <div class="dropdown-avatar">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
-                </svg>
-            </div>
-            <span id="dropdownName">User</span>
-        </li>
-        <li><a href="#">My Ads</a></li>
-        <li><a href="#">Saved Ads</a></li>
-        <li><a href="#">Credits Usage</a></li>
-        <li><a href="pages/dashboard.html">Settings</a></li>
-        <li class="dropdown-logout">
-            <a href="#" id="logoutBtn">
-                Logout
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5-5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/>
-                </svg>
-            </a>
-        </li>
-    </ul>
-</div> 
     </nav>
 
+    <!-- ── Hero ──────────────────────────────────────────────── -->
     <section class="hero-bg">
         <div class="hero-content container">
             <div class="hero-text">
                 <h1>Buy &amp; Sell Cars in Egypt</h1>
-                <p>
-                    Discover trusted listings, modern tools, and a better way to explore cars with RevXChange.
-                </p>
+                <p>Discover trusted listings, modern tools, and a better way to explore cars with RevXChange.</p>
                 <a href="pages/used-cars.html" class="hero-btn">Browse All Cars</a>
             </div>
-
             <div class="hero-image">
                 <img src="assets/images/BMW2.png" alt="Featured Car">
                 <div class="hero-glow"></div>
@@ -125,14 +112,11 @@
         </div>
     </section>
 
-    
+    <!-- ── Top Brands / Models / Cities / Prices ─────────────── -->
     <section class="home-brands">
         <div class="container">
-
             <div class="brands-box">
-
                 <h2 class="section-title" id="sectionTitle">Top Brands</h2>
-
                 <div class="tabs">
                     <button class="active">Top Brands</button>
                     <button>Top Models</button>
@@ -140,52 +124,50 @@
                     <button>Price Ranges</button>
                 </div>
                 <div class="brands-grid"></div>
-
             </div>
-
         </div>
     </section>
 
+    <!-- ── Discover Section ───────────────────────────────────── -->
     <section class="home-discover">
         <div class="container">
             <div id="discoverSection"></div>
         </div>
     </section>
 
+    <!-- ── Communities Preview ───────────────────────────────── -->
     <section class="home-communities">
-    <div class="container">
-        <div class="section-header-row">
-            <div>
-                <h2 class="section-title-alt">Car Communities</h2>
-                <p class="section-subtitle">Real owners. Real advice. One community per model.</p>
+        <div class="container">
+            <div class="section-header-row">
+                <div>
+                    <h2 class="section-title-alt">Car Communities</h2>
+                    <p class="section-subtitle">Real owners. Real advice. One community per model.</p>
+                </div>
+                <a href="pages/communities.html" class="view-all-link">Explore All Communities →</a>
             </div>
-            <a href="pages/communities.html" class="view-all-link">Explore All Communities →</a>
+            <div class="community-preview-grid" id="communityPreview"></div>
         </div>
-        <div class="community-preview-grid" id="communityPreview"></div>
-    </div>
     </section>
 
+    <!-- ── FAQ ───────────────────────────────────────────────── -->
     <section class="home-faq">
         <div class="container">
             <h2 class="faq-title">Frequently Asked Questions</h2>
-
             <div class="faq-container">
                 <div class="faq-item">
-                    <button class="faq-question">What is RevXChange? <span class="arrow"></span></button>
+                    <button class="faq-question">What is RevXChange?</button>
                     <div class="faq-answer">
                         <p>RevXChange is Egypt's premium car marketplace where you can buy, sell, and auction cars with verified listings and an active car enthusiast community.</p>
                     </div>
                 </div>
-
                 <div class="faq-item">
-                    <button class="faq-question">How do I sell my car on RevXChange? <span class="arrow"></span></button>
+                    <button class="faq-question">How do I sell my car on RevXChange?</button>
                     <div class="faq-answer">
                         <p>Simply click the "+ Sell My Car" button in the navbar. You can list your car for direct sale or enter it into one of our weekly auctions.</p>
                     </div>
                 </div>
-
                 <div class="faq-item">
-                    <button class="faq-question">Are the car communities free to join? <span class="arrow"></span></button>
+                    <button class="faq-question">Are the car communities free to join?</button>
                     <div class="faq-answer">
                         <p>Yes! Every car model has a dedicated community where you can share experiences, find trusted mechanics, and ask questions for free.</p>
                     </div>
@@ -194,6 +176,7 @@
         </div>
     </section>
 
+    <!-- ── Footer ────────────────────────────────────────────── -->
     <footer class="main-footer">
         <div class="container footer-grid">
             <div class="footer-col">
@@ -204,7 +187,6 @@
                     <li><a href="#">Careers</a></li>
                 </ul>
             </div>
-
             <div class="footer-col">
                 <h4>View Website In</h4>
                 <ul class="lang-list">
@@ -212,7 +194,6 @@
                     <li><a href="#">العربية</a></li>
                 </ul>
             </div>
-
             <div class="footer-col">
                 <h4>Need Help?</h4>
                 <ul>
@@ -221,7 +202,6 @@
                     <li><a href="#">Feedback</a></li>
                 </ul>
             </div>
-
             <div class="footer-col">
                 <h4>Connect with Us</h4>
                 <div class="social-icons">
@@ -235,7 +215,6 @@
                 </div>
             </div>
         </div>
-
         <div class="footer-bottom">
             <div class="container">
                 <p>© RevXChange. All rights reserved | 2026 TAS Rights Management LLC.</p>
@@ -247,9 +226,59 @@
         </div>
     </footer>
 
+    <!-- ── Cara AI FAB ────────────────────────────────────────── -->
+    <button class="cara-fab" id="caraFab">
+        <span class="cara-fab-spark"></span>
+        <span class="cara-fab-spark"></span>
+        <span class="cara-fab-spark"></span>
+        <span class="cara-fab-spark"></span>
+        <span class="cara-fab-spark"></span>
+        <span class="cara-fab-spark"></span>
+        <svg class="cara-fab-icon" viewBox="0 0 24 24" fill="none" width="20" height="20">
+            <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M8.5 13C8.5 10.5 10.1 8.8 12 8.8C13.9 8.8 15.5 10.5 15.5 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="9.5" cy="15" r="1.1" fill="currentColor"/>
+            <circle cx="14.5" cy="15" r="1.1" fill="currentColor"/>
+        </svg>
+        <span class="cara-fab-label">Ask Cara</span>
+    </button>
+
+    <div class="cara-panel cara-hidden" id="caraPanel">
+        <div class="cara-header">
+            <div class="cara-header-avatar">
+                <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
+                    <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M8.5 13C8.5 10.5 10.1 8.8 12 8.8C13.9 8.8 15.5 10.5 15.5 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    <circle cx="9.5" cy="15" r="1.1" fill="currentColor"/>
+                    <circle cx="14.5" cy="15" r="1.1" fill="currentColor"/>
+                </svg>
+            </div>
+            <div class="cara-header-info">
+                <div class="cara-header-name">Cara AI</div>
+                <div class="cara-header-status">
+                    <span class="cara-status-dot"></span>
+                    Online · Car Assistant
+                </div>
+            </div>
+            <button class="cara-header-close" id="caraClose">✕</button>
+        </div>
+        <div class="cara-messages" id="caraMessages"></div>
+        <div class="cara-input-bar">
+            <input type="text" class="cara-text-input" id="caraInput" placeholder="Ask me anything about cars…">
+            <button class="cara-send-btn" id="caraSend">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                    <path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
     <script src="js/cars.js"></script>
     <script src="js/main.js"></script>
     <script src="js/navbar.js"></script>
+    <script src="js/cara.js"></script>
+
+
 </body>
 
 </html>
