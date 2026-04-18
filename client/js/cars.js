@@ -36,6 +36,11 @@ const mostViewedCars = [
     fuel:         'Petrol',
     fabrika:      true,
     phone:        '201000000001',
+    images: [
+      'assets/images/mercedes.png',
+      'assets/images/BMW.png',
+      'assets/images/kia.png',
+    ],
   },
   {
     id: 2,
@@ -49,6 +54,9 @@ const mostViewedCars = [
     fuel:         'Petrol',
     fabrika:      false,
     phone:        '201000000002',
+    images: [
+      'assets/images/BMW.png',
+    ],
   },
   {
     id: 3,
@@ -62,6 +70,10 @@ const mostViewedCars = [
     fuel:         'Petrol',
     fabrika:      true,
     phone:        '201000000003',
+    images: [
+      'assets/images/kia.png',
+      'assets/images/hyundai.png',
+    ],
   },
   {
     id: 4,
@@ -75,6 +87,9 @@ const mostViewedCars = [
     fuel:         'Petrol',
     fabrika:      false,
     phone:        '201000000004',
+    images: [
+      'assets/images/toyota.png',
+    ],
   },
   {
     id: 5,
@@ -88,6 +103,10 @@ const mostViewedCars = [
     fuel:         'Petrol',
     fabrika:      false,
     phone:        '201000000005',
+    images: [
+      'assets/images/hyundai.png',
+      'assets/images/nissan.png',
+    ],
   },
   {
     id: 6,
@@ -101,6 +120,9 @@ const mostViewedCars = [
     fuel:         'Petrol',
     fabrika:      true,
     phone:        '201000000006',
+    images: [
+      'assets/images/nissan.png',
+    ],
   },
   {
     id: 7,
@@ -114,6 +136,11 @@ const mostViewedCars = [
     fuel:         'Petrol',
     fabrika:      false,
     phone:        '201000000007',
+    images: [
+      'assets/images/chevrolet.png',
+      'assets/images/opel.png',
+      'assets/images/renault.png',
+    ],
   },
   {
     id: 8,
@@ -127,6 +154,9 @@ const mostViewedCars = [
     fuel:         'Petrol',
     fabrika:      false,
     phone:        '201000000008',
+    images: [
+      'assets/images/renault.png',
+    ],
   },
   {
     id: 9,
@@ -140,6 +170,10 @@ const mostViewedCars = [
     fuel:         'Petrol',
     fabrika:      true,
     phone:        '201000000009',
+    images: [
+      'assets/images/mg.png',
+      'assets/images/skoda.png',
+    ],
   },
   {
     id: 10,
@@ -153,6 +187,9 @@ const mostViewedCars = [
     fuel:         'Petrol',
     fabrika:      false,
     phone:        '201000000010',
+    images: [
+      'assets/images/honda.png',
+    ],
   },
   {
     id: 11,
@@ -166,6 +203,10 @@ const mostViewedCars = [
     fuel:         'Petrol',
     fabrika:      false,
     phone:        '201000000011',
+    images: [
+      'assets/images/skoda.png',
+      'assets/images/volkswagen.png',
+    ],
   },
   {
     id: 12,
@@ -179,8 +220,12 @@ const mostViewedCars = [
     fuel:         'Petrol',
     fabrika:      true,
     phone:        '201000000012',
+    images: [
+      'assets/images/fiat.png',
+    ],
   },
 ];
+
 /* Discover Section*/
 // ─── Helper Formatters ────────────────────────────────────────
 function formatPrice(price) {
