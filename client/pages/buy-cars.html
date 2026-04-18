@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>New Cars - RevXChange</title>
+
+  <link rel="stylesheet" href="../css/base/reset.css" />
+  <link rel="stylesheet" href="../css/base/variables.css" />
+  <link rel="stylesheet" href="../css/base/typography.css" />
+  <link rel="stylesheet" href="../css/base/style.css" />
+  <link rel="stylesheet" href="../css/components/navbar.css" />
+  <link rel="stylesheet" href="../css/pages/buy-cars.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container">
+      <a href="../index.html" class="nav-logo">
+        <img src="../assets/images/Logo.png" alt="RevXChange Logo">
+      </a>
+      <ul class="nav-links">
+        <li><a href="used-cars.html">Used Cars</a></li>
+        <li><a href="buy-cars.html">New Cars</a></li>
+        <li><a href="#">Auctioned Cars</a></li>
+        <li><a href="#">Ask About Your Car</a></li>
+        <li><a href="#">Car Communities</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="lang-btn">🌐 عربي</button>
+        <a href="sell-car.html" class="sell-btn">+ Sell My Car</a>
+        <a href="login.html" class="login-btn">Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="bc-hero">
+    <div class="container">
+      <div class="bc-hero-content">
+        <span class="bc-tag">Brand New Vehicles</span>
+        <h1>Browse New Cars</h1>
+        <p>Explore the latest models from top brands, with official prices and full specs.</p>
+        <div class="bc-search-bar">
+          <input type="text" id="bcSearchInput" placeholder="Search by brand, model, or year…">
+          <button id="bcSearchBtn">Search</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Top Brands -->
+  <section class="bc-section">
+    <div class="container">
+      <div class="bc-brands-box">
+        <h2 class="bc-section-title">Top Brands</h2>
+        <div class="bc-brands-grid" id="bcBrandsGrid"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Listings -->
+  <section class="bc-section">
+    <div class="container">
+      <div class="bc-listings-header">
+        <h2 class="bc-section-title">Top Searched New Cars</h2>
+        <span class="bc-count" id="bcCount"></span>
+      </div>
+      <div class="bc-grid" id="bcGrid"></div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div class="bc-overlay bc-hidden" id="bcOverlay">
+    <div class="bc-modal">
+      <button class="bc-modal-close" id="bcModalClose">✕</button>
+      <div class="bc-modal-top">
+        <div class="bc-modal-img-wrap">
+          <img id="bcModalImg" src="" alt="">
+        </div>
+        <div class="bc-modal-info">
+          <p class="bc-modal-breadcrumb">New Car</p>
+          <h2 id="bcModalTitle"></h2>
+          <div class="bc-modal-prices">
+            <div>
+              <span class="bc-price-label">Official Price</span>
+              <span class="bc-price-val" id="bcModalOfficial"></span>
+            </div>
+            <div>
+              <span class="bc-price-label">Market Price</span>
+              <span class="bc-price-val" id="bcModalMarket"></span>
+            </div>
+          </div>
+          <p class="bc-modal-warranty" id="bcModalWarranty"></p>
+        </div>
+      </div>
+      <div class="bc-table">
+        <div class="bc-table-head">
+          <span>Classes</span>
+          <span>Official Price</span>
+          <span>Market Price</span>
+        </div>
+        <div id="bcTableBody"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/buy-cars.js"></script>
+  <script src="../js/navbar.js"></script>
+</body>
+</html>
