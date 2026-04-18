@@ -24,7 +24,7 @@
         padding 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ── Scrolled: Pill shape ───────────────────────────────────── */
+
 .navbar.scrolled {
     top: 14px;
     width: calc(100% - 80px);
