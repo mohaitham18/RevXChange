@@ -2,15 +2,18 @@
     // ── Skip login page ────────────────────────────────────────
     if (window.location.pathname.toLowerCase().includes('login')) return;
 
-    // ── Icon SVG (shared markup, no gradient IDs) ──────────────
+    // ── Remove any hardcoded FAB/panel from HTML ───────────────
+    const existingFab   = document.getElementById('caraFab');
+    const existingPanel = document.getElementById('caraPanel');
+    if (existingFab)   existingFab.remove();
+    if (existingPanel) existingPanel.remove();
+
+    // ── Icon SVG ───────────────────────────────────────────────
     function iconSVG(size, color) {
         const c = color || 'currentColor';
         return `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="${c}" style="flex-shrink:0;">
-            <!-- large center star -->
             <path d="M12 2 L13.2 8.8 L20 10 L13.2 11.2 L12 18 L10.8 11.2 L4 10 L10.8 8.8 Z"/>
-            <!-- small top-right star -->
             <path d="M19 2 L19.6 4.4 L22 5 L19.6 5.6 L19 8 L18.4 5.6 L16 5 L18.4 4.4 Z" opacity="0.75"/>
-            <!-- tiny bottom-right dot star -->
             <path d="M20 14 L20.4 15.6 L22 16 L20.4 16.4 L20 18 L19.6 16.4 L18 16 L19.6 15.6 Z" opacity="0.55"/>
         </svg>`;
     }
@@ -71,9 +74,18 @@
     const sendBtn  = document.getElementById('caraSend');
 
     // ── State ──────────────────────────────────────────────────
-    let isOpen    = false;
-    let started   = false;
-    const ctx     = { brand: null, model: null };
+    let isOpen  = false;
+    let started = false;
+    const ctx   = { brand: null, model: null };
+
+    // ── Session persistence ────────────────────────────────────
+    const SESSION_KEY  = 'caraMessages';
+    const SESSION_OPEN = 'caraOpen';
+    let messageLog = JSON.parse(sessionStorage.getItem(SESSION_KEY) || '[]');
+
+    function saveLog() {
+        sessionStorage.setItem(SESSION_KEY, JSON.stringify(messageLog));
+    }
 
     // ── Data ───────────────────────────────────────────────────
     const brands = {
@@ -97,21 +109,70 @@
         { label: '🔩 Find a mechanic',     flow: 'mechanic'  },
     ];
 
-    // Resolve relative paths for pages in /pages/ subdirectory
     const isSubpage = window.location.pathname.includes('/pages/');
     const root = isSubpage ? '../' : '';
 
     // ── Toggle ─────────────────────────────────────────────────
+    function restoreSession() {
+        // Find the last interactive element in the log
+        let lastInteractiveIndex = -1;
+        messageLog.forEach((msg, i) => {
+            if (msg.type === 'chips' || msg.type === 'quickactions') {
+                lastInteractiveIndex = i;
+            }
+        });
+
+        messageLog.forEach((msg, i) => {
+            if (msg.type === 'bubble') {
+                // Render bubble without saving again
+                const isAr = /[\u0600-\u06FF]/.test(msg.html);
+                const dir  = isAr ? 'rtl' : 'ltr';
+                const wrap = document.createElement('div');
+                wrap.className = `cara-msg from-${msg.from}`;
+                if (msg.from === 'cara') {
+                    wrap.innerHTML = `
+                        <div class="cara-msg-avatar">${iconSVG(13, '#ddd6fe')}</div>
+                        <div class="cara-bubble" dir="${dir}">${msg.html}</div>`;
+                } else {
+                    wrap.innerHTML = `<div class="cara-bubble" dir="${dir}">${msg.html}</div>`;
+                }
+                messages.appendChild(wrap);
+            } else if (i === lastInteractiveIndex) {
+                // Only re-render the LAST set of chips/actions so user can still interact
+                if (msg.type === 'quickactions') {
+                    addQuickActions();
+                } else if (msg.type === 'chips' && msg.items) {
+                    addChips(msg.items, async (choice) => {
+                        await speak('Let me help with that.', 600);
+                        addQuickActions();
+                    });
+                }
+            }
+        });
+
+        scroll();
+    }
+
     function openPanel() {
         panel.classList.remove('cara-hidden');
         isOpen = true;
-        if (!started) { started = true; startConversation(); }
+        sessionStorage.setItem(SESSION_OPEN, 'true');
+        if (!started) {
+            started = true;
+            if (messageLog.length > 0) {
+                restoreSession();
+            } else {
+                startConversation();
+            }
+        }
         setTimeout(() => input.focus(), 100);
     }
 
     function closePanel() {
         panel.classList.add('cara-hidden');
         isOpen = false;
+        sessionStorage.removeItem(SESSION_OPEN);
+        // Do NOT clear messageLog here — keep history for the session
     }
 
     function togglePanel() { isOpen ? closePanel() : openPanel(); }
@@ -123,6 +184,7 @@
 
     document.addEventListener('click', (e) => {
         if (suppressClose) { suppressClose = false; return; }
+        if (e.target.closest('a[href]')) return;
         if (isOpen && !panel.contains(e.target) && !fab.contains(e.target) &&
             (!navBtn || !navBtn.contains(e.target))) {
             closePanel();
@@ -131,9 +193,9 @@
 
     // ── Message builders ───────────────────────────────────────
     function addBubble(html, from) {
-        const isAr  = /[\u0600-\u06FF]/.test(html);
-        const dir   = isAr ? 'rtl' : 'ltr';
-        const wrap  = document.createElement('div');
+        const isAr = /[\u0600-\u06FF]/.test(html);
+        const dir  = isAr ? 'rtl' : 'ltr';
+        const wrap = document.createElement('div');
         wrap.className = `cara-msg from-${from}`;
 
         if (from === 'cara') {
@@ -145,6 +207,8 @@
         }
 
         messages.appendChild(wrap);
+        messageLog.push({ type: 'bubble', html, from });
+        saveLog();
         scroll();
     }
 
@@ -184,6 +248,9 @@
         messages.appendChild(wrap);
         scroll();
 
+        messageLog.push({ type: 'chips', items: items.map(i => typeof i === 'object' ? i.label : i) });
+        saveLog();
+
         wrap.querySelectorAll('.cara-chip-btn').forEach((btn, i) => {
             btn.addEventListener('click', () => {
                 suppressClose = true;
@@ -208,6 +275,9 @@
             </div>`;
         messages.appendChild(wrap);
         scroll();
+
+        messageLog.push({ type: 'quickactions' });
+        saveLog();
 
         wrap.querySelectorAll('.cara-quick-btn').forEach((btn, i) => {
             btn.addEventListener('click', () => {
@@ -252,7 +322,7 @@
         }
     }
 
-    // ── Brand → Model picker (reused by multiple flows) ────────
+    // ── Brand → Model picker ───────────────────────────────────
     function pickBrandModel(onDone) {
         addChips(Object.keys(brands), async (brand) => {
             ctx.brand = (brand === 'Other') ? 'your car' : brand;
@@ -389,5 +459,10 @@
 
     sendBtn.addEventListener('click', handleInput);
     input.addEventListener('keydown', (e) => { if (e.key === 'Enter') handleInput(); });
+
+    // ── Restore open state on page load ────────────────────────
+    if (sessionStorage.getItem(SESSION_OPEN) === 'true') {
+        openPanel();
+    }
 
 })();
