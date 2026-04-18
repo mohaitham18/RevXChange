@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="css/components/cards.css">
     <link rel="stylesheet" href="css/pages/home.css">
     <link rel="stylesheet" href="css/base/footer.css">
+    <link rel="stylesheet" href="css/components/navbar.css">
+    <link rel="stylesheet" href="css/components/cara.css">
 
 </head>
 
@@ -29,7 +31,22 @@
                 <li><a href="pages/used-cars.html">Used Cars</a></li>
                 <li><a href="pages/buy-cars.html">New Cars</a></li>
                 <li><a href="#">Auctioned Cars</a></li>
-                <li><a href="Q-A.html">Ask About Your Car</a></li>
+                <li>
+                    <a href="#" class="cara-nav-link" id="caraNavBtn">
+                        <svg class="cara-icon" viewBox="0 0 24 24" fill="none" width="15" height="15">
+                        <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M8.5 13C8.5 10.5 10.1 8.8 12 8.8C13.9 8.8 15.5 10.5 15.5 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        <circle cx="9.5" cy="15" r="1.1" fill="currentColor"/>
+                        <circle cx="14.5" cy="15" r="1.1" fill="currentColor"/>
+                        </svg>
+                        <span class="cara-text">Cara AI</span>
+                        <span class="cara-spark"></span>
+                        <span class="cara-spark"></span>
+                        <span class="cara-spark"></span>
+                        <span class="cara-spark"></span>
+                        <span class="cara-spark"></span>
+                    </a>
+                </li>
                 <li><a href="pages/communities.html">Car Communities</a></li>
                 <span class="nav-indicator" id="navIndicator"></span>
             </ul>
@@ -77,7 +94,9 @@
             </a>
         </li>
     </ul>
-</div> 
+</div>
+            </div>
+        </div>
     </nav>
 
     <section class="hero-bg">
@@ -223,6 +242,7 @@
     <script src="js/cars.js"></script>
     <script src="js/main.js"></script>
     <script src="js/navbar.js"></script>
+    <script src="js/cara.js"></script>
 </body>
 
 </html>

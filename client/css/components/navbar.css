@@ -376,3 +376,97 @@
 .dropdown-logout a:hover {
     background: #fff5f5 !important;
 }
+
+/*Cara AI Nav Item*/
+@keyframes caraShimmer {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes caraIconPulse {
+    0%, 100% { opacity: 0.7; transform: scale(1);    filter: drop-shadow(0 0 3px rgba(167,139,250,0.6)); }
+    50%       { opacity: 1;   transform: scale(1.12); filter: drop-shadow(0 0 7px rgba(167,139,250,1));   }
+}
+
+@keyframes sparkFly {
+    0%   { transform: translate(0, 0) scale(0); opacity: 0; }
+    25%  { opacity: 1; }
+    100% { transform: translate(var(--tx), var(--ty)) scale(0); opacity: 0; }
+}
+
+.cara-nav-link {
+    position: relative;
+    display: flex !important;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 11px !important;
+    text-decoration: none;
+    overflow: visible !important;
+}
+
+.cara-nav-link:hover {
+    background: rgba(167, 139, 250, 0.13) !important;
+}
+
+.navbar.scrolled .cara-nav-link:hover {
+    background: rgba(109, 40, 217, 0.07) !important;
+}
+
+/* Animated gradient text */
+.cara-text {
+    background: linear-gradient(90deg, #d8b4fe, #93c5fd, #f0abfc, #d8b4fe);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: caraShimmer 3.5s ease infinite;
+    font-weight: 600;
+    font-size: 0.92rem;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.navbar.scrolled .cara-text {
+    background: linear-gradient(90deg, #6d28d9, #1d4ed8, #7e22ce, #6d28d9);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: caraShimmer 3.5s ease infinite;
+}
+
+/* Icon */
+.cara-nav-link .cara-icon {
+    color: #c4b5fd;
+    animation: caraIconPulse 2.8s ease-in-out infinite;
+    flex-shrink: 0;
+}
+
+.navbar.scrolled .cara-nav-link .cara-icon {
+    color: #7c3aed;
+}
+
+/* Spark particles */
+.cara-spark {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #d8b4fe, #93c5fd);
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.cara-spark:nth-child(3) { --tx: -12px; --ty: -14px; }
+.cara-spark:nth-child(4) { --tx:  13px; --ty: -12px; }
+.cara-spark:nth-child(5) { --tx: -15px; --ty:   5px; width: 3px; height: 3px; }
+.cara-spark:nth-child(6) { --tx:  14px; --ty:   7px; }
+.cara-spark:nth-child(7) { --tx:   2px; --ty: -17px; width: 3px; height: 3px; }
+
+.cara-nav-link:hover .cara-spark:nth-child(3) { animation: sparkFly 0.65s ease-out 0s    forwards; }
+.cara-nav-link:hover .cara-spark:nth-child(4) { animation: sparkFly 0.65s ease-out 0.06s forwards; }
+.cara-nav-link:hover .cara-spark:nth-child(5) { animation: sparkFly 0.65s ease-out 0.11s forwards; }
+.cara-nav-link:hover .cara-spark:nth-child(6) { animation: sparkFly 0.65s ease-out 0.04s forwards; }
+.cara-nav-link:hover .cara-spark:nth-child(7) { animation: sparkFly 0.65s ease-out 0.09s forwards; }
