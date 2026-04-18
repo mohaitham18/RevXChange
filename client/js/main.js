@@ -350,9 +350,60 @@ function renderDiscover() {
     }
 }
 
-// ─── Init ─────────────────────────────────────────────────────
-renderGrid('Top Brands');
-renderDiscover();
+/*Community Preview Data*/
+const communityPreviewPosts = [
+    {
+        community: 'Toyota Corolla',
+        img: 'assets/images/toyota.png',
+        author: 'Ahmed Hassan',
+        time: '2h ago',
+        text: 'Anyone know a reliable mechanic in Cairo for a Corolla 2019? AC compressor is making a grinding noise and I need someone I can actually trust.',
+        likes: 24, comments: 8,
+    },
+    {
+        community: 'BMW 320i',
+        img: 'assets/images/bmw.png',
+        author: 'Karim Mostafa',
+        time: '5h ago',
+        text: 'Just hit 100,000 km on my 2018 320i. Planning a full service — timing chain, spark plugs, or cooling system first? Looking for a specialist in Maadi.',
+        likes: 41, comments: 15,
+    },
+    {
+        community: 'Kia Sportage',
+        img: 'assets/images/kia.png',
+        author: 'Sara Nabil',
+        time: '1d ago',
+        text: 'Comparing the 2023 Sportage vs MG RX5 for a family car. Which holds better resale value in the Egyptian market long term? Both are similar price right now.',
+        likes: 67, comments: 29,
+    },
+];
+
+/*Render: Community Preview*/
+function renderCommunityPreview() {
+    const el = document.getElementById('communityPreview');
+    if (!el) return;
+
+    el.innerHTML = communityPreviewPosts.map(post => `
+        <a href="pages/communities.html" class="community-preview-card">
+            <div class="comm-card-label">
+                <img src="${post.img}" alt="${post.community}" onerror="this.style.display='none'">
+                ${post.community}
+            </div>
+            <p class="comm-card-text">${post.text}</p>
+            <div class="comm-card-footer">
+                <div class="comm-card-author">
+                    <div class="comm-card-avatar">👤</div>
+                    <span>${post.author} · ${post.time}</span>
+                </div>
+                <div class="comm-card-stats">
+                    <span>▲ ${post.likes}</span>
+                    <span>💬 ${post.comments}</span>
+                </div>
+            </div>
+        </a>
+    `).join('');
+}
+
 // FAQ Accordion Logic
 document.querySelectorAll('.faq-question').forEach(button => {
     button.addEventListener('click', () => {
@@ -377,3 +428,8 @@ document.querySelectorAll('.faq-question').forEach(button => {
         }
     });
 });
+
+// ─── Init ─────────────────────────────────────────────────────
+renderGrid('Top Brands');
+renderDiscover();
+renderCommunityPreview();

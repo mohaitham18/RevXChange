@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Car Communities — RevXChange</title>
+
+    <link rel="stylesheet" href="../css/base/reset.css">
+    <link rel="stylesheet" href="../css/base/variables.css">
+    <link rel="stylesheet" href="../css/base/typography.css">
+    <link rel="stylesheet" href="../css/base/style.css">
+    <link rel="stylesheet" href="../css/components/navbar.css">
+    <link rel="stylesheet" href="../css/pages/communities.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="nav-logo">
+                <img src="../assets/images/Logo.png" alt="RevXChange Logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="used-cars.html">Used Cars</a></li>
+                <li><a href="buy-cars.html">New Cars</a></li>
+                <li><a href="#">Auctioned Cars</a></li>
+                <li><a href="#">Ask About Your Car</a></li>
+                <li><a href="communities.html" class="nav-active">Car Communities</a></li>
+                <span class="nav-indicator" id="navIndicator"></span>
+            </ul>
+            <div class="nav-actions">
+                <button class="lang-btn">🌐 عربي</button>
+                <a href="sell-car.html" class="sell-btn">+ Sell My Car</a>
+                <a href="login.html" class="login-btn">Login</a>
+                <div class="profile-menu hidden" id="profileMenu">
+                    <button class="profile-icon">👤</button>
+                    <ul class="dropdown">
+                        <li><a href="#">My Ads</a></li>
+                        <li><a href="#">Saved Ads</a></li>
+                        <li><a href="#">Credits Usage</a></li>
+                        <li><a href="dashboard.html">Settings</a></li>
+                        <li><a href="#" id="logoutBtn">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="comm-hero">
+        <div class="container">
+            <h1>Car Communities</h1>
+            <p>One community per model. Find owners, mechanics, and real advice.</p>
+        </div>
+    </section>
+
+    <!-- Brand Selector -->
+    <section class="comm-brands-section">
+        <div class="container">
+            <div class="comm-brands-box">
+                <div class="comm-brands-header">
+                    <h2 class="section-title">Choose Your Community</h2>
+                    <div class="comm-search">
+                        <input type="text" id="commSearch" placeholder="Search by model...">
+                    </div>
+                </div>
+                <div class="comm-brands-grid" id="commBrandsGrid"></div>
+                <div class="pagination-pill">
+                    <button class="page-arrow" id="pageLeft">‹</button>
+                    <span id="pageIndicator">Page 1 of 3</span>
+                    <button class="page-arrow" id="pageRight">›</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Feed — hidden until brand selected -->
+    <section class="comm-feed-section" id="commFeed">
+        <div class="container">
+            <div class="comm-feed-box">
+                <div class="comm-feed-header" id="commFeedHeader"></div>
+                <div class="comm-sort-bar">
+                    <button class="sort-btn active" data-sort="top">🔥 Top</button>
+                    <button class="sort-btn" data-sort="new">🕐 New</button>
+                    <button class="sort-btn" data-sort="trending">📈 Trending</button>
+                    <button class="sort-btn" data-sort="controversial">⚡ Controversial</button>
+                </div>
+                <div class="posts-list" id="postsList"></div>
+            </div>
+        </div>
+    </section>
+
+    <script src="../js/communities.js"></script>
+</body>
+</html>
