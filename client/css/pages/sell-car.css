@@ -1,0 +1,132 @@
+/* Modal Background */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    display: none;
+    /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 3000;
+}
+
+
+/* The Popup Box */
+
+.sell-modal-box {
+    background: #111;
+    width: 90%;
+    max-width: 550px;
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    color: white;
+}
+
+.close-modal {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    background: none;
+    border: none;
+    color: #888;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.modal-header h2 {
+    color: white;
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.modal-header p {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+
+/* Wine Red Elements */
+
+.wine-toggle {
+    display: flex;
+    background: #222;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.wine-toggle button {
+    flex: 1;
+    background: none;
+    border: none;
+    color: #888;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.wine-toggle button.active {
+    background: #8b1a2a;
+    /* Wine Red */
+    color: white;
+    border-radius: 7px;
+}
+
+.wine-chips {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.chip {
+    padding: 8px 15px;
+    background: #222;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.chip.active {
+    background: rgba(139, 26, 42, 0.2);
+    border-color: #8b1a2a;
+    color: white;
+}
+
+.wine-submit-btn {
+    width: 100%;
+    background: #8b1a2a;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.wine-submit-btn:hover {
+    background: #5a0f1c;
+}
+
+
+/* Inputs */
+
+input[type="text"],
+input[type="number"],
+input[type="tel"] {
+    width: 100%;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    padding: 12px;
+    color: white;
+    border-radius: 8px;
+    margin-top: 8px;
+    margin-bottom: 20px;
+}
