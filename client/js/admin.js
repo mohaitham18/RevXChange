@@ -30,4 +30,3 @@ const signInBtn = document.getElementById('signInBtn');
 if (signInBtn) {
   signInBtn.addEventListener('click', signIn);
 }
-
