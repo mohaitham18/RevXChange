@@ -19,10 +19,11 @@
 /* The Popup Box */
 
 .sell-modal-box {
+    position: relative;
     background: #111;
     width: 90%;
-    max-width: 550px;
-    padding: 40px;
+    max-width: 970px;
+    padding: 70px;
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     position: relative;
@@ -70,11 +71,12 @@
     cursor: pointer;
 }
 
-.wine-toggle button.active {
-    background: #8b1a2a;
+.wine-toggle button {
+    background: #8e1626;
     /* Wine Red */
-    color: white;
-    border-radius: 7px;
+    margin: 3px;
+    color: rgb(252, 252, 252);
+    border-radius: 7px; 
 }
 
 .wine-chips {
@@ -116,11 +118,47 @@
 }
 
 
+/* --- YOUR ORIGINAL CODE START --- */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 3000;
+}
+
+.sell-modal-box {
+    background: #111;
+    width: 90%;
+    max-width: 970px;
+    padding: 70px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    /* EDIT 1: Centering the box on the page */
+    margin: 40px auto; 
+    position: relative;
+}
+
+/* ... keep all your other original CSS exactly as it is ... */
+
+/* EDIT 2: Small style for the seller section divider */
+.seller-details-title {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    margin-bottom: 20px;
+}
 /* Inputs */
 
 input[type="text"],
 input[type="number"],
-input[type="tel"] {
+input[type="tel"],
+input[type="email"] {
     width: 100%;
     background: #1a1a1a;
     border: 1px solid #333;

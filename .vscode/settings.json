@@ -8,7 +8,8 @@
     }
     ,
     "accessibility.signals.lineHasWarning": {
-        "sound": "on", "announcement": "auto"
+        "sound": "on",
+        "announcement": "auto"
     }
     ,
     "accessibility.signals.lineHasInlineSuggestion": {

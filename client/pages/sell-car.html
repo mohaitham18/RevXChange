@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sell Your Car - RevXChange</title>
+
+  <link rel="stylesheet" href="../css/base/reset.css" />
+  <link rel="stylesheet" href="../css/base/variables.css" />
+  <link rel="stylesheet" href="../css/base/typography.css" />
+  <link rel="stylesheet" href="../css/base/style.css" />
+  <link rel="stylesheet" href="../css/components/navbar.css" />
+  <link rel="stylesheet" href="../css/pages/sell-car.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container">
+      <a href="../index.html" class="nav-logo">
+        <img src="../assets/images/Logo.png" alt="RevXChange Logo">
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="used-cars.html">Used Cars</a></li>
+        <li><a href="buy-cars.html">New Cars</a></li>
+        <li><a href="#">Auctioned Cars</a></li>
+        <li><a href="#">Ask About Your Car</a></li>
+        <li><a href="#">Car Communities</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="lang-btn">🌐 عربي</button>
+        <a href="sell-car.html" class="sell-btn">+ Sell My Car</a>
+        <a href="login.html" class="login-btn" id="loginBtn">Login</a>
+
+        <div class="profile-menu hidden" id="profileMenu">
+          <button class="profile-icon">👤</button>
+          <ul class="dropdown">
+            <li><a href="#">My Ads</a></li>
+            <li><a href="#">Saved Ads</a></li>
+            <li><a href="#">Credits Usage</a></li>
+            <li><a href="dashboard.html">Settings</a></li>
+            <li><a href="#" id="logoutBtn">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="sell-page">
+    <section class="sell-page-hero">
+      <div class="container">
+        <div class="sell-page-hero-content">
+          <span class="sell-tag">RevXChange Seller Portal</span>
+          <h1>Sell Your Car</h1>
+        </div>
+      </div>
+    </section>
+
+    <section class="sell-form-section">
+      <div class="container">
+        <div class="sell-modal-box">
+          <div class="modal-header">
+            <h2>Car details</h2>
+            <p>Fill in your vehicle details below</p>
+          </div>
+
+          <form id="sellForm" class="modal-form">
+            <div class="form-section">
+              <label for="carInfo">Car Brand, Model & Year</label>
+              <input id="carInfo" type="text" placeholder="e.g., Mercedes C200 2024" required>
+
+              <div class="form-grid">
+                <div class="input-group">
+                  <label>Condition</label>
+                  <div class="wine-toggle">
+                    <button type="button" class="active">Used</button>
+                    <button type="button">New</button>
+                  </div>
+                </div>
+
+                <div class="input-group">
+                  <label for="kmsDriven">KMs Driven</label>
+                  <input id="kmsDriven" type="number" placeholder="Enter KM">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <label>Fuel Type</label>
+              <div class="wine-chips">
+                <button type="button" class="chip active">Gas</button>
+                <button type="button" class="chip">Electric</button>
+                <button type="button" class="chip">Hybrid</button>
+              </div>
+
+              <label>Transmission</label>
+              <div class="wine-chips">
+                <button type="button" class="chip active">Automatic</button>
+                <button type="button" class="chip">Manual</button>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <label for="phoneNumber">Phone Number</label>
+              <div class="phone-row">
+                <span class="flag-code">🇪🇬 +20</span>
+                <input id="phoneNumber" type="tel" placeholder="100 000 0000">
+              </div>
+
+              <div class="check-row">
+                <input type="checkbox" id="wa-check" checked>
+                <label for="wa-check">Allow WhatsApp Contact</label>
+              </div>
+            </div>
+
+            <button type="submit" class="wine-submit-btn">Post My Ad</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="../js/navbar.js"></script>
+</body>
+</html>
