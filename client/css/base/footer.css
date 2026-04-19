@@ -2,15 +2,15 @@
 
 .home-faq {
     background: #0d0d0d;
-    padding: 100px 0;
+    padding: 60px 0;
     color: white;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .faq-title {
     text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 50px;
+    font-size: 1.8rem;
+    margin-bottom: 30px;
     font-family: 'Segoe UI', sans-serif;
     font-weight: 700;
 }
@@ -26,11 +26,11 @@
 
 .faq-question {
     width: 100%;
-    padding: 26px 0;
+    padding: 16px 0;
     background: none;
     border: none;
     color: white;
-    font-size: 1.4rem;
+    font-size: 1rem;
     text-align: left;
     display: flex;
     justify-content: space-between;
@@ -68,8 +68,8 @@
 }
 
 .faq-answer p {
-    padding-bottom: 24px;
-    font-size: 1.1rem;
+    padding-bottom: 14px;
+    font-size: 0.9rem;
 }
 
 
@@ -77,7 +77,7 @@
 
 .main-footer {
     background: #0d0d0d;
-    padding: 80px 0 40px;
+    padding: 50px 0 30px;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
